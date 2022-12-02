@@ -1,0 +1,18 @@
+
+switch:
+  - platform: gpio
+    id: one
+    name: "Press"
+    pin:
+      number: GPIO0
+      inverted: true
+
+
+button:
+  - platform: template
+    name: "air_freshener_Button"
+    on_press:
+      then:
+        - switch.toggle: one
+        - delay: 1s
+        - switch.toggle: one
